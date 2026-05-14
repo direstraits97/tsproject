@@ -1,0 +1,87 @@
+form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  background-color: #153954;
+  padding: 1%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  color: white;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  line-height: 2.8rem;
+}
+label {
+  font-weight: 600;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+input {
+  width: 70%;
+  height: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+select {
+  width: 70%;
+  height: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+a {
+  color: black;
+  text-decoration: underline;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+article {
+  background-color: #80c8ff;
+  display: flex;
+  justify-content: space-around;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px;
+  margin-bottom: 30px;
+}
+h4 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+p {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.result {
+  display: flex;
+  gap: 10px;
+}
+button {
+  border: 3px solid #945900;
+  border-radius: 5px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+}
+.addbutton {
+  width: 120px;
+  height: 50px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+h3 {
+  text-align: center;
+  font-size: 1.5rem;
+}
+#paginering {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+.pagineringbutton {
+  height: 40px;
+  width: 40px;
+}
