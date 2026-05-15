@@ -43,3 +43,13 @@ article {
   margin-top: auto;
   margin-bottom: auto;
 }
+.textandiconeven {
+  display: flex;
+  align-items: center;
+}
+button:hover {
+  cursor: pointer;
+}
+button {
+  justify-content: center;
+}

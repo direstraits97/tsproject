@@ -1,9 +1,11 @@
 <h2>Kurser</h2>
 <form>
-  <label for="subject">Ämne:</label>
+  <label for="subject" class="textandiconeven"><img src="/ikoner/subject.svg" alt="" />Ämne:</label>
   <select id="subject"></select>
-  <label for="search">Sök kurs:</label>
-  <input type="search" id="search" name="search" />
+  <label for="search" class="textandiconeven"
+    ><img src="/ikoner/search.svg" alt="" />Sök kurs:</label
+  >
+  <input type="search" id="search" name="search" placeholder="Namn på kurs eller kurskod" />
 </form>
 <p class="numberofresults">Visar ?-? av ? kurser</p>
 <section>
@@ -29,7 +31,9 @@
       <h4>Kursplan:</h4>
       <a href="#">Länk till kursplan</a>
     </div>
-    <button class="addbutton">Lägg till</button>
+    <button class="addbutton textandiconeven">
+      Lägg till <img src="/ikoner/add.svg" alt="" />
+    </button>
   </article>
   <article>
     <div class="result">
@@ -52,12 +56,14 @@
       <h4>Kursplan:</h4>
       <a href="#">Länk till kursplan</a>
     </div>
-    <button class="addbutton">Lägg till</button>
+    <button class="addbutton textandiconeven">Lägg till<img src="/ikoner/add.svg" alt="" /></button>
   </article>
   <p class="numberofresults">Visar ?-? av ? kurser</p>
   <div id="paginering">
-    <button class="pagineringbutton">l</button>
-    <button class="pagineringbutton">1</button>
-    <button class="pagineringbutton">r</button>
+    <button class="pagineringbutton textandiconeven"><img src="/ikoner/back.svg" alt="" /></button>
+    <button class="pagineringbutton textandiconeven">1</button>
+    <button class="pagineringbutton textandiconeven">
+      <img src="/ikoner/forward.svg" alt="" />
+    </button>
   </div>
 </section>
