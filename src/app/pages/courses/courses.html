@@ -11,6 +11,7 @@
     name="search"
     placeholder="Namn på kurs eller kurskod"
     [(ngModel)]="courseSearch"
+    (input)="filterBySearch()"
   />
 </form>
 <p class="numberofresults">Visar ?-? av ? kurser</p>

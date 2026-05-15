@@ -59,4 +59,12 @@ export class Courses {
   sortBySubject(): void {
     this.sortByString('subject');
   }
+  filterBySearch(): void {
+    const filteredCourses = this.courses().filter(
+      (course) =>
+        course.courseName.toLowerCase().includes(this.courseSearch) ||
+        course.courseCode.toLowerCase().includes(this.courseSearch),
+    );
+    this.manipulatedCourses.set(filteredCourses);
+  }
 }
