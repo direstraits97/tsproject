@@ -1,7 +1,12 @@
 <h2>Kurser</h2>
 <form>
   <label for="subject" class="textandiconeven"><img src="/ikoner/subject.svg" alt="" />Ämne:</label>
-  <select id="subject"></select>
+  <select id="subject">
+    <option value="null">Välj kategori</option>
+    @for (category of categories(); track category) {
+      <option value="{{ category }}">{{ category }}</option>
+    }
+  </select>
   <label for="search" class="textandiconeven"
     ><img src="/ikoner/search.svg" alt="" />Sök kurs:</label
   >
@@ -14,7 +19,7 @@
     (input)="filterBySearch()"
   />
 </form>
-<p class="numberofresults">Visar ?-? av ? kurser</p>
+<p class="numberofresults">Visar ?-? av {{ manipulatedCourses().length }} kurser</p>
 <table>
   <thead>
     <tr>
@@ -41,7 +46,6 @@
     }
   </tbody>
 </table>
-<p class="numberofresults">Visar ?-? av ? kurser</p>
 <div id="paginering">
   <button class="pagineringbutton textandiconeven"><img src="/ikoner/back.svg" alt="" /></button>
   <button class="pagineringbutton textandiconeven">1</button>

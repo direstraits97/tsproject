@@ -14,10 +14,12 @@ export class Courses {
   courses = this.courseService.getCourses();
   courseSearch: string = '';
   manipulatedCourses = signal<CoursesGet[]>([]);
+  categories = signal<string[]>([]);
 
   constructor() {
     effect(() => {
       this.manipulatedCourses.set(this.courses());
+      this.getCategories();
     });
   }
 
@@ -66,5 +68,15 @@ export class Courses {
         course.courseCode.toLowerCase().includes(this.courseSearch),
     );
     this.manipulatedCourses.set(filteredCourses);
+  }
+  getCategories() {
+    this.categories.set(
+      this.courses().reduce((result: string[], course) => {
+        if (result.indexOf(course.subject) === -1) {
+          return [...result, course.subject];
+        }
+        return result;
+      }, []),
+    );
   }
 }

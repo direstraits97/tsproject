@@ -41,8 +41,7 @@ button {
   font-family: 'Raleway', sans-serif;
   font-weight: 600;
   font-size: 1rem;
-  width: 10%;
-  min-width: 150px;
+  width: 150px;
   height: 40px;
 }
 
@@ -64,6 +63,7 @@ table {
   border: 2px solid #153954;
   border-collapse: collapse;
   background-color: #80c8ff;
+  margin-bottom: 40px;
 }
 tr {
   border-bottom: 2px solid #153954;
