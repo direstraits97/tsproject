@@ -1,7 +1,7 @@
 <h2>Kurser</h2>
 <form>
   <label for="subject" class="textandiconeven"><img src="/ikoner/subject.svg" alt="" />Ämne:</label>
-  <select id="subject">
+  <select id="subject" name="subject" [(ngModel)]="categoryChoice" (change)="filterBySearch()">
     <option value="null">Välj kategori</option>
     @for (category of categories(); track category) {
       <option value="{{ category }}">{{ category }}</option>
@@ -32,7 +32,7 @@
     </tr>
   </thead>
   <tbody>
-    @for (course of manipulatedCourses(); track course.courseCode) {
+    @for (course of manipulatedCourses(); track course.courseCode + course.subjectCode) {
       <tr>
         <td>{{ course.courseCode }}</td>
         <td>{{ course.courseName }}</td>

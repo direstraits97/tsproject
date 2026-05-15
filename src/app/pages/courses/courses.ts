@@ -15,6 +15,7 @@ export class Courses {
   courseSearch: string = '';
   manipulatedCourses = signal<CoursesGet[]>([]);
   categories = signal<string[]>([]);
+  categoryChoice: string = '';
 
   constructor() {
     effect(() => {
@@ -64,8 +65,10 @@ export class Courses {
   filterBySearch(): void {
     const filteredCourses = this.courses().filter(
       (course) =>
-        course.courseName.toLowerCase().includes(this.courseSearch) ||
-        course.courseCode.toLowerCase().includes(this.courseSearch),
+        (course.courseName.toLowerCase().includes(this.courseSearch) &&
+          course.subject.includes(this.categoryChoice)) ||
+        (course.courseCode.toLowerCase().includes(this.courseSearch) &&
+          course.subject.includes(this.categoryChoice)),
     );
     this.manipulatedCourses.set(filteredCourses);
   }
@@ -78,5 +81,11 @@ export class Courses {
         return result;
       }, []),
     );
+  }
+  filterByCategory(): void {
+    const filteredCourses = this.courses().filter((course) =>
+      course.subject.includes(this.categoryChoice),
+    );
+    this.manipulatedCourses.set(filteredCourses);
   }
 }
