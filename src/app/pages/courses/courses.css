@@ -1,7 +1,7 @@
 form {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 70%;
   background-color: #153954;
   padding: 1%;
   margin-left: auto;
@@ -33,33 +33,19 @@ select {
 a {
   color: black;
   text-decoration: underline;
-  margin-top: 20px;
-  margin-bottom: 20px;
 }
-h4 {
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-p {
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-.result {
-  display: flex;
-  gap: 10px;
-}
+
 button {
   border: 3px solid #945900;
   border-radius: 5px;
   font-family: 'Raleway', sans-serif;
   font-weight: 600;
   font-size: 1rem;
+  width: 10%;
+  min-width: 150px;
+  height: 40px;
 }
 
-h3 {
-  text-align: center;
-  font-size: 1.5rem;
-}
 #paginering {
   display: flex;
   justify-content: center;
@@ -70,4 +56,35 @@ h3 {
   height: 40px;
   width: 40px;
   font-size: 1.8em;
+}
+table {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  border: 2px solid #153954;
+  border-collapse: collapse;
+  background-color: #80c8ff;
+}
+tr {
+  border-bottom: 2px solid #153954;
+}
+td {
+  padding: 0.7rem;
+}
+th {
+  padding: 0.7rem;
+  text-align: left;
+  background-color: #005595;
+  color: white;
+}
+.sortable {
+  text-decoration: underline;
+}
+.sortable:hover {
+  cursor: pointer;
+}
+.numberofresults {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
 }

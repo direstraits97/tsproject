@@ -5,65 +5,46 @@
   <label for="search" class="textandiconeven"
     ><img src="/ikoner/search.svg" alt="" />Sök kurs:</label
   >
-  <input type="search" id="search" name="search" placeholder="Namn på kurs eller kurskod" />
+  <input
+    type="search"
+    id="search"
+    name="search"
+    placeholder="Namn på kurs eller kurskod"
+    [(ngModel)]="courseSearch"
+  />
 </form>
 <p class="numberofresults">Visar ?-? av ? kurser</p>
-<section>
-  <h3>Sökresultat:</h3>
-  <article>
-    <div class="result">
-      <h4>Kod:</h4>
-      <p>Kod</p>
-    </div>
-    <div class="result">
-      <h4>Kursnamn:</h4>
-      <p>Kursnamn</p>
-    </div>
-    <div class="result">
-      <h4>Poäng:</h4>
-      <p>Poäng</p>
-    </div>
-    <div class="result">
-      <h4>Ämne:</h4>
-      <p>Ämne</p>
-    </div>
-    <div class="result">
-      <h4>Kursplan:</h4>
-      <a href="#">Länk till kursplan</a>
-    </div>
-    <button class="addbutton textandiconeven">
-      Lägg till <img src="/ikoner/add.svg" alt="" />
-    </button>
-  </article>
-  <article>
-    <div class="result">
-      <h4>Kod:</h4>
-      <p>Kod</p>
-    </div>
-    <div class="result">
-      <h4>Kursnamn:</h4>
-      <p>Kursnamn</p>
-    </div>
-    <div class="result">
-      <h4>Poäng:</h4>
-      <p>Poäng</p>
-    </div>
-    <div class="result">
-      <h4>Ämne:</h4>
-      <p>Ämne</p>
-    </div>
-    <div class="result">
-      <h4>Kursplan:</h4>
-      <a href="#">Länk till kursplan</a>
-    </div>
-    <button class="addbutton textandiconeven">Lägg till<img src="/ikoner/add.svg" alt="" /></button>
-  </article>
-  <p class="numberofresults">Visar ?-? av ? kurser</p>
-  <div id="paginering">
-    <button class="pagineringbutton textandiconeven"><img src="/ikoner/back.svg" alt="" /></button>
-    <button class="pagineringbutton textandiconeven">1</button>
-    <button class="pagineringbutton textandiconeven">
-      <img src="/ikoner/forward.svg" alt="" />
-    </button>
-  </div>
-</section>
+<table>
+  <thead>
+    <tr>
+      <th class="sortable" (click)="sortByCode()">Kurskod</th>
+      <th class="sortable" (click)="sortByName()">Kursnamn</th>
+      <th class="sortable" (click)="sortByPoints()">Poäng</th>
+      <th class="sortable" (click)="sortBySubject()">Ämne</th>
+      <th>Kursplan</th>
+      <th>Lägg till</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (course of manipulatedCourses(); track course.courseCode) {
+      <tr>
+        <td>{{ course.courseCode }}</td>
+        <td>{{ course.courseName }}</td>
+        <td>{{ course.points }}</td>
+        <td>{{ course.subject }}</td>
+        <td><a href="{{ course.syllabus }}">Kursplan</a></td>
+        <td>
+          <button class="textandiconeven">Lägg till<img src="/ikoner/add.svg" alt="" /></button>
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>
+<p class="numberofresults">Visar ?-? av ? kurser</p>
+<div id="paginering">
+  <button class="pagineringbutton textandiconeven"><img src="/ikoner/back.svg" alt="" /></button>
+  <button class="pagineringbutton textandiconeven">1</button>
+  <button class="pagineringbutton textandiconeven">
+    <img src="/ikoner/forward.svg" alt="" />
+  </button>
+</div>
