@@ -21,11 +21,9 @@ export class ScheduleService {
         (c) => c.courseCode + c.subjectCode === course.courseCode + course.subjectCode,
       )
     ) {
-      return;
+      this.savedCourses.push(course);
+      localStorage.setItem('savedCourses', JSON.stringify(this.savedCourses));
     }
-
-    this.savedCourses.push(course);
-    localStorage.setItem('savedCourses', JSON.stringify(this.savedCourses));
   }
   loadFromLocalStorage(): void {
     const savedCoursesString: string = localStorage.getItem('savedCourses') || '[]';
