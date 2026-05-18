@@ -29,13 +29,10 @@
           {{ course.subject }}
         </td>
         <td>
-          {{ course.syllabus }}
+          <a href="{{ course.syllabus }}">Kursplan</a>
         </td>
         <td>
-          <button
-            class="textandiconeven"
-            (click)="saveCoursesService.deleteFromLocalStorage(course)"
-          >
+          <button class="textandiconeven" (click)="removeFromLocalStorage(course)">
             Ta bort<img src="/ikoner/delete.svg" alt="" />
           </button>
         </td>
@@ -43,5 +40,5 @@
     }
   </tbody>
 </table>
-<p class="numberofresults">Antal kurser: ?</p>
-<p class="numberofresults">Totalt antal poäng: ?</p>
+<p class="numberofresults">Antal kurser: {{ saveCoursesService.getSavedCourses().length }}</p>
+<p class="numberofresults">Totalt antal poäng: {{ totalPoints() }}</p>

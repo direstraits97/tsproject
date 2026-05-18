@@ -1,6 +1,5 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { CoursesGet } from '../interfaces/courses-get';
-import { findIndex } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -25,7 +24,7 @@ export class ScheduleService {
       localStorage.setItem('savedCourses', JSON.stringify(this.savedCourses));
     }
   }
-  loadFromLocalStorage(): void {
+  private loadFromLocalStorage(): void {
     const savedCoursesString: string = localStorage.getItem('savedCourses') || '[]';
     const savedCourses: CoursesGet[] = JSON.parse(savedCoursesString);
     this.savedCourses = savedCourses;
