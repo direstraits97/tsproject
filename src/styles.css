@@ -34,3 +34,35 @@ button:hover {
 button {
   justify-content: center;
 }
+button a {
+  color: black;
+}
+button a:hover {
+  text-decoration: none;
+}
+table {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  border: 2px solid #153954;
+  border-collapse: collapse;
+  background-color: #80c8ff;
+  margin-bottom: 40px;
+}
+tr {
+  border-bottom: 2px solid #153954;
+}
+td {
+  padding: 0.7rem;
+}
+th {
+  padding: 0.7rem;
+  text-align: left;
+  background-color: #005595;
+  color: white;
+}
+.numberofresults {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}

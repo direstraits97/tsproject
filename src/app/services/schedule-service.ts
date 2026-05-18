@@ -1,6 +1,42 @@
 import { Injectable } from '@angular/core';
+import { CoursesGet } from '../interfaces/courses-get';
+import { findIndex } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
-export class ScheduleService {}
+export class ScheduleService {
+  private savedCourses: CoursesGet[];
+
+  constructor() {
+    this.savedCourses = [];
+    this.loadFromLocalStorage();
+  }
+  saveToLocalStorage(course: CoursesGet): void {
+    const savedCoursesString: string = localStorage.getItem('savedCourses') || '[]';
+    const savedCourses: CoursesGet[] = JSON.parse(savedCoursesString);
+
+    if (
+      !savedCourses.find(
+        (c) => c.courseCode + c.subjectCode === course.courseCode + course.subjectCode,
+      )
+    ) {
+      return;
+    }
+
+    this.savedCourses.push(course);
+    localStorage.setItem('savedCourses', JSON.stringify(this.savedCourses));
+  }
+  loadFromLocalStorage(): void {
+    const savedCoursesString: string = localStorage.getItem('savedCourses') || '[]';
+    const savedCourses: CoursesGet[] = JSON.parse(savedCoursesString);
+    this.savedCourses = savedCourses;
+  }
+  getSavedCourses(): CoursesGet[] {
+    return this.savedCourses;
+  }
+  deleteFromLocalStorage(course: CoursesGet): void {
+    this.savedCourses.splice(this.savedCourses.indexOf(course), 1);
+    localStorage.setItem('savedCourses', JSON.stringify(this.savedCourses));
+  }
+}

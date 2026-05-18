@@ -2,6 +2,7 @@ import { Component, effect, inject, signal } from '@angular/core';
 import { CourseService } from '../../services/course-service';
 import { FormsModule } from '@angular/forms';
 import { CoursesGet } from '../../interfaces/courses-get';
+import { ScheduleService } from '../../services/schedule-service';
 
 @Component({
   selector: 'app-courses',
@@ -18,6 +19,7 @@ export class Courses {
   categories = signal<string[]>([]);
   batchSize = signal<number>(30);
   index = signal<number>(0);
+  saveCoursesService = inject(ScheduleService);
 
   constructor() {
     effect(() => {
@@ -73,6 +75,7 @@ export class Courses {
           course.subject.includes(this.categoryChoice)),
     );
     this.manipulatedCourses.set(filteredCourses);
+    this.index.set(0);
   }
   getCategories() {
     this.categories.set(

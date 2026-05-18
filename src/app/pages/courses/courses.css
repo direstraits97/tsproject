@@ -48,35 +48,13 @@ button {
 #paginering {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 30px;
   margin-bottom: 40px;
 }
 .pagineringbutton {
   height: 40px;
   width: 40px;
-  font-size: 1.4em;
-  font-family: 'Roboto', sans-serif;
-}
-table {
-  width: 70%;
-  margin-left: auto;
-  margin-right: auto;
-  border: 2px solid #153954;
-  border-collapse: collapse;
-  background-color: #80c8ff;
-  margin-bottom: 40px;
-}
-tr {
-  border-bottom: 2px solid #153954;
-}
-td {
-  padding: 0.7rem;
-}
-th {
-  padding: 0.7rem;
-  text-align: left;
-  background-color: #005595;
-  color: white;
 }
 .sortable {
   text-decoration: underline;
@@ -84,11 +62,7 @@ th {
 .sortable:hover {
   cursor: pointer;
 }
-.numberofresults {
-  width: 70%;
-  margin-left: auto;
-  margin-right: auto;
-}
 #currentpage {
   text-decoration: underline;
+  font-size: 1.4rem;
 }

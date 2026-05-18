@@ -53,7 +53,9 @@
         <td>{{ course.subject }}</td>
         <td><a href="{{ course.syllabus }}">Kursplan</a></td>
         <td>
-          <button class="textandiconeven">Lägg till<img src="/ikoner/add.svg" alt="" /></button>
+          <button class="textandiconeven" (click)="saveCoursesService.saveToLocalStorage(course)">
+            Lägg till<img src="/ikoner/add.svg" alt="" />
+          </button>
         </td>
       </tr>
     }
@@ -63,7 +65,7 @@
   <button class="pagineringbutton textandiconeven" (click)="pageDown()">
     <img src="/ikoner/back.svg" alt="" />
   </button>
-  <button class="pagineringbutton textandiconeven" id="currentpage">{{ index() + 1 }}</button>
+  <p id="currentpage">{{ index() + 1 }}</p>
   <button class="pagineringbutton textandiconeven" (click)="pageUp()">
     <img src="/ikoner/forward.svg" alt="" />
   </button>
