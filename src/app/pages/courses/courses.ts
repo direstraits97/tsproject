@@ -13,9 +13,11 @@ export class Courses {
   private courseService = inject(CourseService);
   courses = this.courseService.getCourses();
   courseSearch: string = '';
+  categoryChoice: string = '';
   manipulatedCourses = signal<CoursesGet[]>([]);
   categories = signal<string[]>([]);
-  categoryChoice: string = '';
+  batchSize = signal<number>(30);
+  index = signal<number>(0);
 
   constructor() {
     effect(() => {
@@ -87,5 +89,16 @@ export class Courses {
       course.subject.includes(this.categoryChoice),
     );
     this.manipulatedCourses.set(filteredCourses);
+  }
+
+  pageUp(): void {
+    if (Math.floor(this.manipulatedCourses().length / this.batchSize()) > this.index()) {
+      this.index.update((value) => value + 1);
+    }
+  }
+  pageDown(): void {
+    if (this.index() !== 0) {
+      this.index.update((value) => value - 1);
+    }
   }
 }
