@@ -7,4 +7,12 @@ import { RouterLink } from '@angular/router';
   templateUrl: './mainheader.html',
   styleUrl: './mainheader.css',
 })
-export class Mainheader {}
+export class Mainheader {
+  open: boolean = false;
+  openMenu(): void {
+    this.open = true;
+  }
+  closeMenu(): void {
+    this.open = false;
+  }
+}

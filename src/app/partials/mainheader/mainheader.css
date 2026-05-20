@@ -31,3 +31,88 @@ nav ul {
 a {
   color: white;
 }
+#openmenu {
+  display: none;
+}
+#mobilebutton {
+  display: none;
+}
+@media (max-width: 1024px) {
+  #logo {
+    width: 100px;
+    height: 100px;
+  }
+  nav ul {
+    width: 98%;
+    font-size: 1rem;
+  }
+  nav ul img {
+    width: 20px;
+    height: 20px;
+  }
+}
+.show {
+  right: 0;
+}
+@media (max-width: 600px) {
+  #openmenu {
+    display: block;
+    border: none;
+    background: none;
+  }
+  #openmenu img {
+    width: 60px;
+    height: 60px;
+  }
+  #mobilebutton {
+    display: block;
+  }
+  #closemenu {
+    border: none;
+    background: none;
+  }
+  #closemenu img {
+    width: 60px;
+    height: 60px;
+  }
+  nav {
+    position: fixed;
+    top: 0;
+    border-radius: 0;
+    right: -110%;
+    transition: right 300ms ease-out;
+    height: 100vh;
+    width: 100vw;
+    z-index: 10;
+  }
+  nav ul {
+    flex-direction: column;
+    align-items: flex-end;
+    margin: 0;
+    height: 100vh;
+    justify-content: space-evenly;
+    font-size: 1.5rem;
+  }
+  nav ul a {
+    margin-right: 3rem;
+  }
+  nav ul button {
+    margin-right: 2rem;
+  }
+  #headercontainer {
+    flex-direction: column;
+    padding: 0;
+  }
+  #mobilemenucontainer {
+    background-color: #005595;
+    width: 100%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    display: flex;
+    justify-content: flex-end;
+  }
+  #logoandtitle {
+    padding-top: 2%;
+    padding-bottom: 2%;
+  }
+}

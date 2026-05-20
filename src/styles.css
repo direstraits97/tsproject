@@ -1,3 +1,6 @@
+html {
+  scroll-behavior: smooth;
+}
 body {
   font-family: 'Raleway', sans-serif;
   font-size: 1rem;
@@ -65,4 +68,25 @@ th {
   width: 70%;
   margin-left: auto;
   margin-right: auto;
+}
+.tablecontainer {
+}
+@media (max-width: 1024px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+  h2 {
+    font-size: 1.6rem;
+  }
+  .tablecontainer {
+    overflow-x: auto;
+  }
+  .numberofresults {
+    width: 80%;
+  }
+}
+@media (max-width: 600px) {
+  .numberofresults {
+    width: 90%;
+  }
 }

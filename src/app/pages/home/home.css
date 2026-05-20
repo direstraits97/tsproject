@@ -4,19 +4,21 @@ h2 {
 }
 .maincontainer {
   display: flex;
-  width: 80%;
+  width: 75%;
   margin-left: auto;
   margin-right: auto;
   padding: 2%;
   gap: 2%;
 }
-img {
+.maincontainer img {
   border-radius: 10px;
   max-width: 800px;
 }
-
-#aboutcontainer {
+.homepictures {
   width: 100%;
+}
+#aboutcontainer {
+  width: 60%;
   background-color: #153954;
   color: white;
   border-radius: 10px;
@@ -36,11 +38,10 @@ h3 {
   font-size: 1.4rem;
 }
 #linkscontainer {
-  width: 100%;
+  width: 60%;
   background-color: #80c8ff;
   border-radius: 10px;
   border: 5px solid #945900;
-  padding: 1%;
 }
 .textandbutton {
   display: flex;
@@ -56,6 +57,7 @@ h3 {
 button {
   border: none;
   width: 20%;
+  min-width: 130px;
   font-family: 'Raleway', sans-serif;
   border-radius: 5px;
   height: 70px;
@@ -68,4 +70,41 @@ button {
 }
 button:hover .arrowright {
   transform: translate(0px, -3px);
+}
+@media (max-width: 1024px) {
+  .maincontainer {
+    flex-direction: column;
+    width: 90%;
+  }
+  #aboutcontainer {
+    width: 100%;
+  }
+  #linkscontainer {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  #linkscontainer button {
+    min-width: 100px;
+  }
+  button {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 600px) {
+  h2 {
+    margin-top: 0;
+  }
+  .textandbutton {
+    flex-direction: column;
+  }
+  .textandbutton p {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  button {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
 }

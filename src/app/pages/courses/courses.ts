@@ -97,11 +97,19 @@ export class Courses {
   pageUp(): void {
     if (Math.floor(this.manipulatedCourses().length / this.batchSize()) > this.index()) {
       this.index.update((value) => value + 1);
+      const form = document.querySelector<HTMLFormElement>('#form');
+      if (form !== null) {
+        form.scrollIntoView();
+      }
     }
   }
   pageDown(): void {
     if (this.index() !== 0) {
       this.index.update((value) => value - 1);
+      const form = document.querySelector<HTMLFormElement>('#form');
+      if (form !== null) {
+        form.scrollIntoView();
+      }
     }
   }
 }

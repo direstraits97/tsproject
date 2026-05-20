@@ -1,44 +1,46 @@
 <h2>Mitt schema</h2>
-<table>
-  <thead>
-    <tr>
-      <th>Kurskod</th>
-      <th>Kursnamn</th>
-      <th>Poäng</th>
-      <th>Ämne</th>
-      <th>Kursplan</th>
-      <th>Ta bort</th>
-    </tr>
-  </thead>
-  <tbody>
-    @for (
-      course of saveCoursesService.getSavedCourses();
-      track course.courseCode + course.subjectCode
-    ) {
+<div class="tablecontainer">
+  <table>
+    <thead>
       <tr>
-        <td>
-          {{ course.courseCode }}
-        </td>
-        <td>
-          {{ course.courseName }}
-        </td>
-        <td>
-          {{ course.points }}
-        </td>
-        <td>
-          {{ course.subject }}
-        </td>
-        <td>
-          <a href="{{ course.syllabus }}">Kursplan</a>
-        </td>
-        <td>
-          <button class="textandiconeven" (click)="removeFromLocalStorage(course)">
-            Ta bort<img src="/ikoner/delete.svg" alt="" />
-          </button>
-        </td>
+        <th>Kurskod</th>
+        <th>Kursnamn</th>
+        <th>Poäng</th>
+        <th>Ämne</th>
+        <th>Kursplan</th>
+        <th>Ta bort</th>
       </tr>
-    }
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      @for (
+        course of saveCoursesService.getSavedCourses();
+        track course.courseCode + course.subjectCode
+      ) {
+        <tr>
+          <td>
+            {{ course.courseCode }}
+          </td>
+          <td>
+            {{ course.courseName }}
+          </td>
+          <td>
+            {{ course.points }}
+          </td>
+          <td>
+            {{ course.subject }}
+          </td>
+          <td>
+            <a href="{{ course.syllabus }}">Kursplan</a>
+          </td>
+          <td>
+            <button class="textandiconeven" (click)="removeFromLocalStorage(course)">
+              Ta bort<img src="/ikoner/delete.svg" alt="" />
+            </button>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>
 <p class="numberofresults">Antal kurser: {{ saveCoursesService.getSavedCourses().length }}</p>
 <p class="numberofresults">Totalt antal poäng: {{ totalPoints() }}</p>
