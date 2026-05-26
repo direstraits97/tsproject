@@ -70,9 +70,9 @@ export class Courses {
     const filteredCourses = this.courses().filter(
       (course) =>
         (course.courseName.toLowerCase().includes(this.courseSearch) &&
-          course.subject.includes(this.categoryChoice)) ||
+          course.subject === this.categoryChoice) ||
         (course.courseCode.toLowerCase().includes(this.courseSearch) &&
-          course.subject.includes(this.categoryChoice)),
+          course.subject === this.categoryChoice),
     );
     this.manipulatedCourses.set(filteredCourses);
     this.index.set(0);
@@ -93,23 +93,23 @@ export class Courses {
     );
     this.manipulatedCourses.set(filteredCourses);
   }
+  scrollToBeginning(): void {
+    const form = document.querySelector<HTMLFormElement>('#form');
+    if (form !== null) {
+      form.scrollIntoView();
+    }
+  }
 
   pageUp(): void {
     if (Math.floor(this.manipulatedCourses().length / this.batchSize()) > this.index()) {
       this.index.update((value) => value + 1);
-      const form = document.querySelector<HTMLFormElement>('#form');
-      if (form !== null) {
-        form.scrollIntoView();
-      }
+      this.scrollToBeginning();
     }
   }
   pageDown(): void {
     if (this.index() !== 0) {
       this.index.update((value) => value - 1);
-      const form = document.querySelector<HTMLFormElement>('#form');
-      if (form !== null) {
-        form.scrollIntoView();
-      }
+      this.scrollToBeginning();
     }
   }
 }
