@@ -1,0 +1,80 @@
+form {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  background-color: #153954;
+  padding: 1%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  color: white;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  line-height: 2.8rem;
+}
+label {
+  font-weight: 600;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+input {
+  width: 70%;
+  height: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+select {
+  width: 70%;
+  height: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+a {
+  color: black;
+  text-decoration: underline;
+}
+
+button {
+  border: 3px solid #945900;
+  border-radius: 5px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  height: 40px;
+}
+
+#paginering {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+.pagineringbutton {
+  width: 50px;
+  height: 50px;
+}
+.addbutton {
+  min-width: 130px;
+}
+.sortable {
+  text-decoration: underline;
+}
+.sortable:hover {
+  cursor: pointer;
+}
+#currentpage {
+  text-decoration: underline;
+  font-size: 1.6rem;
+}
+@media (max-width: 1024px) {
+  form {
+    width: 80%;
+  }
+}
+@media (max-width: 600px) {
+  form {
+    width: 90%;
+  }
+}

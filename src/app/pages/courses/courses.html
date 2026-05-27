@@ -1,0 +1,77 @@
+<h2>Kurser</h2>
+<form id="form">
+  <label for="subject" class="textandiconeven"><img src="/ikoner/subject.svg" alt="" />Ämne:</label>
+  <select id="subject" name="subject" [(ngModel)]="categoryChoice" (change)="filterBySearch()">
+    <option value="">Välj kategori</option>
+    @for (category of categories(); track category) {
+      <option value="{{ category }}">{{ category }}</option>
+    }
+  </select>
+  <label for="search" class="textandiconeven"
+    ><img src="/ikoner/search.svg" alt="" />Sök kurs:</label
+  >
+  <input
+    type="search"
+    id="search"
+    name="search"
+    placeholder="Namn på kurs eller kurskod"
+    [(ngModel)]="courseSearch"
+    (input)="filterBySearch()"
+  />
+</form>
+<p class="numberofresults">
+  Visar {{ index() * batchSize() + 1 }} -
+  {{
+    index() * batchSize() +
+      manipulatedCourses().slice(index() * batchSize(), index() * batchSize() + batchSize()).length
+  }}
+  av {{ manipulatedCourses().length }} kurser
+</p>
+<div class="tablecontainer">
+  <table>
+    <thead>
+      <tr>
+        <th class="sortable" (click)="sortByCode()">Kurskod</th>
+        <th class="sortable" (click)="sortByName()">Kursnamn</th>
+        <th class="sortable" (click)="sortByPoints()">Poäng</th>
+        <th class="sortable" (click)="sortBySubject()">Ämne</th>
+        <th>Kursplan</th>
+        <th>Lägg till</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (
+        course of manipulatedCourses().slice(
+          index() * batchSize(),
+          index() * batchSize() + batchSize()
+        );
+        track course.courseCode + course.subjectCode
+      ) {
+        <tr>
+          <td>{{ course.courseCode }}</td>
+          <td>{{ course.courseName }}</td>
+          <td>{{ course.points }}</td>
+          <td>{{ course.subject }}</td>
+          <td><a href="{{ course.syllabus }}">Kursplan</a></td>
+          <td>
+            <button
+              class="textandiconeven addbutton"
+              (click)="saveCoursesService.saveToLocalStorage(course)"
+            >
+              Lägg till<img src="/ikoner/add.svg" alt="" />
+            </button>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>
+<div id="paginering">
+  <button class="pagineringbutton textandiconeven" (click)="pageDown()">
+    <img src="/ikoner/back.svg" alt="" />
+  </button>
+  <p id="currentpage">{{ index() + 1 }}</p>
+  <button class="pagineringbutton textandiconeven" (click)="pageUp()">
+    <img src="/ikoner/forward.svg" alt="" />
+  </button>
+</div>

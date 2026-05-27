@@ -1,0 +1,12 @@
+footer {
+  background-color: #153954;
+  color: white;
+  text-align: center;
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+@media (max-width: 600px) {
+  p {
+    font-size: 0.9rem;
+  }
+}

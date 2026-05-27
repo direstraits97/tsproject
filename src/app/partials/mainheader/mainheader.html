@@ -1,0 +1,40 @@
+<header>
+  <div id="headercontainer">
+    <div id="logoandtitle">
+      <img id="logo" src="/bilder/logo-ts-projekt.svg" alt="" />
+      <h1>
+        Sundsvalls<br />
+        Universitet
+      </h1>
+    </div>
+    <nav id="navbar" [class.show]="open" [ariaExpanded]="open">
+      <ul>
+        <li id="mobilebutton">
+          <button id="closemenu" aria-label="Stäng meny" (click)="closeMenu()">
+            <img src="/ikoner/closemenu.svg" alt="" />
+          </button>
+        </li>
+        <li>
+          <a routerLink="/" class="textandiconeven" (click)="closeMenu()"
+            ><img src="/ikoner/home.svg" alt="" />Hem</a
+          >
+        </li>
+        <li>
+          <a routerLink="/courses" class="textandiconeven" (click)="closeMenu()"
+            ><img src="/ikoner/list.svg" alt="" />Kurser</a
+          >
+        </li>
+        <li>
+          <a routerLink="/schedule" class="textandiconeven" (click)="closeMenu()"
+            ><img src="/ikoner/schedule.svg" alt="" />Mitt schema</a
+          >
+        </li>
+      </ul>
+    </nav>
+    <div id="mobilemenucontainer">
+      <button id="openmenu" aria-label="Öppna meny" (click)="openMenu()">
+        <img src="/ikoner/openmenu.svg" alt="" />
+      </button>
+    </div>
+  </div>
+</header>
