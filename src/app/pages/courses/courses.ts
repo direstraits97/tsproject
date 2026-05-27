@@ -67,13 +67,25 @@ export class Courses {
     this.sortByString('subject');
   }
   filterBySearch(): void {
-    const filteredCourses = this.courses().filter(
-      (course) =>
-        (course.courseName.toLowerCase().includes(this.courseSearch) &&
-          course.subject === this.categoryChoice) ||
-        (course.courseCode.toLowerCase().includes(this.courseSearch) &&
-          course.subject === this.categoryChoice),
-    );
+    const filteredCourses = this.courses().filter((course) => {
+      if (this.categoryChoice !== '' && this.courseSearch.toLowerCase() === '') {
+        return course.subject === this.categoryChoice;
+      }
+      if (this.categoryChoice === '' && this.courseSearch.toLowerCase() !== '') {
+        return (
+          course.courseName.toLowerCase().includes(this.courseSearch.toLowerCase()) ||
+          course.courseCode.toLowerCase().includes(this.courseSearch.toLowerCase())
+        );
+      }
+      if (this.categoryChoice !== '' && this.courseSearch.toLowerCase() !== '') {
+        return (
+          course.subject === this.categoryChoice &&
+          (course.courseName.toLowerCase().includes(this.courseSearch.toLowerCase()) ||
+            course.courseCode.toLowerCase().includes(this.courseSearch.toLowerCase()))
+        );
+      }
+      return true;
+    });
     this.manipulatedCourses.set(filteredCourses);
     this.index.set(0);
   }
